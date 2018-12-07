@@ -83,9 +83,11 @@ print("loading weights")
 model.load_weights('vgg_face_weights.h5')
 print("weights loaded")
 vgg_face_descriptor = Model(inputs=model.layers[0].input, outputs=model.layers[-2].output)
+
+model.summary()
+
+
 epsilon = 0.40
-
-
 def verifyFace(img1, img2):
     print("verifying face ...")
     img1_representation = vgg_face_descriptor.predict(preprocess_image(img1))[0, :]
