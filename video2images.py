@@ -30,7 +30,13 @@ def processFolder(path_to_videos, folder_out):
 
 
 # DIRECTORY FOR SAVING IMAGES MUST ALREADY EXIST !!!!!!!!!!!!!!!!!!!
-processFolder("datasets/IdiapReplayAttack/train/attack/fixed", "datasets/ReplayAttackIMGs/attack_fixed")
-processFolder("datasets/IdiapReplayAttack/train/attack/hand", "datasets/ReplayAttackIMGs/attack_hand")
+# processFolder("datasets/IdiapReplayAttack/train/attack/fixed", "datasets/ReplayAttackIMGs/attack_fixed")
+# processFolder("datasets/IdiapReplayAttack/train/attack/hand", "datasets/ReplayAttackIMGs/attack_hand")
 # img_idx = 0
 # processFolder("datasets/IdiapReplayAttack/train/real", "datasets/ReplayAttackIMGs/real")
+
+
+processFolder("datasets/IdiapReplayAttack/test/attack/fixed", "datasets/ReplayAttackIMGs_test/attack_fixed")
+processFolder("datasets/IdiapReplayAttack/test/attack/hand", "datasets/ReplayAttackIMGs_test/attack_hand")
+img_idx = 0
+processFolder("datasets/IdiapReplayAttack/test/real", "datasets/ReplayAttackIMGs_test/real")
