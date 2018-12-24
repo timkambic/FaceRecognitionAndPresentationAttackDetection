@@ -107,3 +107,47 @@ def getTestDataOuluP1():
     test_imgs = test_imgs[:, 0, :, :]
     labels = np.array(labels)
     return test_imgs, labels
+
+
+# ------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------
+def idFromFilename(filename):
+    id = filename[-7:-4]
+    return int(id)
+
+def getTrainingDataReplay_w_id():
+    train_imgs = []
+    labels = []
+    ids = []
+    for file in os.listdir("datasets/ReplayAttackIMGs/attack_hand"):
+        train_imgs.append(preprocess_image("datasets/ReplayAttackIMGs/attack_hand/" + file))
+        labels.append(-1)
+        ids.append(idFromFilename(file))
+    for file in os.listdir("datasets/ReplayAttackIMGs/real"):
+        train_imgs.append(preprocess_image("datasets/ReplayAttackIMGs/real/" + file))
+        labels.append(1)
+        ids.append(idFromFilename(file))
+    train_imgs = np.array(train_imgs)
+    train_imgs = train_imgs[:, 0, :, :]
+    labels = np.array(labels)
+    return train_imgs, labels, ids
+
+
+def getTestDataReplay_w_id():
+    test_imgs = []
+    labels = []
+    ids = []
+    for file in os.listdir("datasets/ReplayAttackIMGs_test/attack_hand"):
+        test_imgs.append(preprocess_image("datasets/ReplayAttackIMGs_test/attack_hand/" + file))
+        labels.append(-1)
+        ids.append(idFromFilename(file))
+    for file in os.listdir("datasets/ReplayAttackIMGs_test/real"):
+        test_imgs.append(preprocess_image("datasets/ReplayAttackIMGs_test/real/" + file))
+        labels.append(1)
+        ids.append(idFromFilename(file))
+    test_imgs = np.array(test_imgs)
+    test_imgs = test_imgs[:, 0, :, :]
+    labels = np.array(labels)
+    return test_imgs, labels, ids
+
+
