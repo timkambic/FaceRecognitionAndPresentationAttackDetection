@@ -41,11 +41,11 @@ def vggFace():
     model.add(Convolution2D(512, (3, 3), activation='relu', name='last_feature_layer'))
     model.add(MaxPooling2D((2, 2), strides=(2, 2)))
 
-    model.add(Convolution2D(4096, (7, 7), activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(Convolution2D(4096, (1, 1), activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(Convolution2D(2622, (1, 1)))
+    model.add(Convolution2D(4096, (7, 7), activation='relu', name="fr_classif1"))
+    model.add(Dropout(0.5, name="fr_classif2"))
+    model.add(Convolution2D(4096, (1, 1), activation='relu', name="fr_classif3"))
+    model.add(Dropout(0.5, name="fr_classif4"))
+    model.add(Convolution2D(2622, (1, 1), name="fr_classif5"))
     model.add(Flatten())
     model.add(Activation('softmax'))
     # you can download the pretrained weights from the following link
