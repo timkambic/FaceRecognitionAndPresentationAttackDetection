@@ -74,22 +74,22 @@ def ROCcurve(scores,ids):
 scores1 = np.loadtxt("scores/features_orgVggFace.txt")
 ids_one_hot = np.loadtxt("scores/IDs_onehot")
 ids1 = [np.argmax(x) for x in ids_one_hot]
-scores2 = np.loadtxt("scores/features_orgVggFace.txt") #TODO
-ids_one_hot = np.loadtxt("scores/IDs_onehot")
-ids2 = [np.argmax(x) for x in ids_one_hot]
+# scores2 = np.loadtxt("scores/features_orgVggFace.txt") #TODO
+# ids_one_hot = np.loadtxt("scores/IDs_onehot")
+# ids2 = [np.argmax(x) for x in ids_one_hot]
 # np.savetxt("scores/IDs",ids, fmt='%d')
 
 
 fpr1, tpr1,_ = ROCcurve(scores1,ids1)
-fpr2, tpr2,_ = ROCcurve(scores2,ids2)
 roc_auc1 = auc(fpr1, tpr1)
-roc_auc2 = auc(fpr2, tpr2)
+# fpr2, tpr2,_ = ROCcurve(scores2,ids2)
+# roc_auc2 = auc(fpr2, tpr2)
 
 
 plt.plot([0, 1], [0, 1], color='navy', lw=1, linestyle='--')
 plt.plot(fpr1, tpr1, color='darkorange', lw=2, label='original (area = %0.2f)' % roc_auc1)
-plt.plot(fpr2, tpr2, color='green', lw=2, label='pad finetunning (area = %0.2f)' % roc_auc1)
-plt.xlabel('False Positive Rate')
+# plt.plot(fpr2, tpr2, color='green', lw=2, label='pad finetunning (area = %0.2f)' % roc_auc2)
+plt.xlabel('False Positive Rate')q
 plt.ylabel('True Positive Rate')
 plt.title('Receiver operating characteristic')
 plt.legend(loc="lower right")
